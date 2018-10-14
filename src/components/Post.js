@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import SanitizedHTML from "react-sanitized-html";
 
 class Post extends React.Component {
   render() {
@@ -8,7 +9,11 @@ class Post extends React.Component {
         <div className="col-md-12 mx-auto">
           <div className="post-preview">
             <h2 className="post-title">{this.props.post.title}</h2>
-            <p className="post-subtitle">{this.props.post.content}</p>
+            <SanitizedHTML className="post-subtitle"
+              allowedAttributes={{ a: ["href"] }}
+              allowedTags={["a"]}
+              html={this.props.post.content}
+            />
           </div>
         </div>
       </div>
