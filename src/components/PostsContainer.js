@@ -18,6 +18,7 @@ class PostsContainer extends React.Component {
       })
       .catch(error => console.log(error));
   }
+
   render() {
     return (
       <div className="container">

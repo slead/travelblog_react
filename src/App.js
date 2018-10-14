@@ -1,16 +1,15 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./css/clean-blog.css";
 import "./css/application.css";
-import Header from "./components/Header";
-import PostsContainer from "./components/PostsContainer";
+import Home from "./components/Home";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Header tagline="Cos working is over-rated" headerClass="subheading" />
-        <PostsContainer />
-      </div>
+      <Router>
+        <Route exact path="/" component={Home} />
+      </Router>
     );
   }
 }
