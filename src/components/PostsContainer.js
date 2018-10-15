@@ -12,7 +12,7 @@ class PostsContainer extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3001/posts.json")
+      .get("http://localhost:3001/posts.json?api=true")
       .then(response => {
         this.setState({ posts: response.data });
       })
