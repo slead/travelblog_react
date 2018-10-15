@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Post from "./Post";
+import PostSnippet from "./PostSnippet";
 
 class PostsContainer extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class PostsContainer extends React.Component {
           <div className="col-md-12">
             {this.state.posts.map(post => {
               return (
-                <Post
+                <PostSnippet
                   post={post}
                   key={post.id}
                 />

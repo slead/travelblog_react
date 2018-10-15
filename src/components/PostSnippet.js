@@ -1,42 +1,35 @@
 import React from "react";
-import axios from "axios";
 import Header from "./Header";
 import SanitizedHTML from "react-sanitized-html";
+import urlParse from 'url-parse'
 
 class Post extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      slug: this.props.match.params.slug,
-      post: {
-        title: null,
-        content: null
-      }
-    };
 
+  getSlug = url => {
+    const parsed = urlParse(url, true);
+    return (parsed['pathname'].replace(".json", ""))
   }
-  componentDidMount() {
-    console.log("mounted")
 
-    axios
-      .get("http://localhost:3001/posts/" + this.state.slug + ".json")
-      .then(response => {
-        this.setState({ post: response.data });
-      })
-      .catch(error => console.log(error));
-
+  getId = id => {
+    const parsed = urlParse(id, true);
+    console.log(parsed)
+    return (parsed['pathname'].replace("/", ""))
   }
+
   render() {
     return (
       <div>
         <div className="row top-50">
           <div className="col-md-12 mx-auto">
             <div className="post-preview">
-              <h2 className="post-title">{this.state.post.title}</h2>
+              <h2 className="post-title">
+                <a href={this.getSlug(this.props.post.url)}>{this.props.post.title}</a>
+                {/*<a href={this.getId(this.props.post.id)}>{this.props.post.title}</a>*/}
+              </h2>
               <SanitizedHTML className="post-subtitle"
                 allowedAttributes={{ a: ["href"] }}
                 allowedTags={["a"]}
-                html={this.state.post.content}
+                html={this.props.post.content}
               />
             </div>
           </div>
