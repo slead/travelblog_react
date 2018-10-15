@@ -7,7 +7,7 @@ const Header = props => (
       <div className='row'>
         <div className='col-lg-8 col-md-10 mx-auto'>
           <div className='site-heading'>
-            <h1>Steve and Glo's Travel Blog</h1>
+            <h1>{props.headline}</h1>
             <span className={props.headerClass}>{props.tagline}</span>
           </div>
         </div>
@@ -17,7 +17,8 @@ const Header = props => (
 );
 
 Header.propTypes = {
-  tagline: PropTypes.string.isRequired,
+  headline: PropTypes.string,
+  tagline: PropTypes.string,
   headerClass: PropTypes.string
 }
 

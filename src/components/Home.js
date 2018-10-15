@@ -7,7 +7,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Header tagline="Cos working is over-rated" headerClass="subheading" />
+        <Header headline="Steve and Glo's travel blog" tagline="Cos working is over-rated" headerClass="subheading" />
         <PostsContainer />
       </div>
     );

@@ -16,15 +16,12 @@ class Post extends React.Component {
 
   }
   componentDidMount() {
-    console.log("mounted")
-
     axios
       .get("http://localhost:3001/posts/" + this.state.slug + ".json")
       .then(response => {
         this.setState({ post: response.data });
       })
       .catch(error => console.log(error));
-
   }
   render() {
     return (
@@ -32,6 +29,7 @@ class Post extends React.Component {
         <div className="row top-50">
           <div className="col-md-12 mx-auto">
             <div className="post-preview">
+              <Header headline={this.state.post.title} headerClass="subheading" />
               <h2 className="post-title">{this.state.post.title}</h2>
               <SanitizedHTML className="post-subtitle"
                 allowedAttributes={{ a: ["href"] }}
