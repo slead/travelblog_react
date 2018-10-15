@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Router, Route, Link } from 'react-router-dom';
+import history from './history';
 import "./css/clean-blog.css";
 import "./css/application.css";
 import Home from "./components/Home";
@@ -9,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div>
           <Route exact path="/" component={Home} />
           <Route path="/posts/:slug" component={Post} />
