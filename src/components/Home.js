@@ -21,19 +21,22 @@ class Home extends React.Component {
   }
 
   getHeaderPhoto = () => {
-    if (this.state.posts[0] && this.state.posts[0].photos && this.state.posts[0].photos[0]) {
+    try {
       return (this.state.posts[0].photos[0].large)
+    } catch (error) {
+      return ('https://farm8.staticflickr.com/7088/7254522762_6cb4f1162c_b.jpg')
     }
   }
 
   render() {
+
     return (
       <div>
         <Header
           headline="Steve and Glo's travel blog"
           tagline="Cos working is over-rated"
           headerClass="subheading"
-          headerPhoto={this.getHeaderPhoto() || 'https://farm8.staticflickr.com/7088/7254522762_6cb4f1162c_b.jpg'}
+          headerPhoto={this.getHeaderPhoto()}
         />
         <PostsContainer posts={this.state.posts}/>
       </div>
