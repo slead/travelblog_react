@@ -22,23 +22,38 @@ class Home extends React.Component {
 
   getHeaderPhoto = () => {
     try {
-      return (this.state.posts[0].photos[0].large)
+      return this.state.posts[0].photos[0].large;
     } catch (error) {
-      return ('https://farm8.staticflickr.com/7088/7254522762_6cb4f1162c_b.jpg')
+      return "https://farm8.staticflickr.com/7088/7254522762_6cb4f1162c_b.jpg";
     }
-  }
+  };
+
+  getHeadLine = () => {
+    try {
+      return this.state.posts[0].title;
+    } catch (error) {
+      return "Steve and Glo's travel blog";
+    }
+  };
+
+  getTagline = () => {
+    try {
+      return this.state.posts[0].title;
+    } catch (error) {
+      return "Cos working is over-rated";
+    }
+  };
 
   render() {
-
     return (
       <div>
         <Header
-          headline="Steve and Glo's travel blog"
-          tagline="Cos working is over-rated"
+          headline={this.getHeadLine()}
+          tagline={this.getTagline()}
           headerClass="subheading"
           headerPhoto={this.getHeaderPhoto()}
         />
-        <PostsContainer posts={this.state.posts}/>
+        <PostsContainer posts={this.state.posts} />
       </div>
     );
   }

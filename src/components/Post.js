@@ -10,10 +10,10 @@ class Post extends React.Component {
       slug: this.props.match.params.slug,
       post: {
         title: null,
-        content: null
+        content: null,
+        photos: []
       }
     };
-
   }
   componentDidMount() {
     axios
@@ -23,15 +23,31 @@ class Post extends React.Component {
       })
       .catch(error => console.log(error));
   }
+  getHeaderPhoto = () => {
+    try {
+      return this.state.post.photos[0].large;
+    } catch (error) {
+      console.log(error)
+      return "https://farm8.staticflickr.com/7088/7254522762_6cb4f1162c_b.jpg";
+    }
+  };
+
   render() {
     return (
       <div>
         <div className="row top-50">
           <div className="col-md-12 mx-auto">
             <div className="post-preview">
-              <Header headline={this.state.post.title} headerClass="subheading" />
+              <Header
+                headline={this.state.post.title}
+                headerClass="subheading"
+                tagline={this.state.post.title}
+                headerClass="subheading"
+                headerPhoto={this.getHeaderPhoto()}
+              />
               <h2 className="post-title">{this.state.post.title}</h2>
-              <SanitizedHTML className="post-subtitle"
+              <SanitizedHTML
+                className="post-subtitle"
                 allowedAttributes={{ a: ["href"] }}
                 allowedTags={["a"]}
                 html={this.state.post.content}
