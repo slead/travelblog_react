@@ -30,7 +30,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Header
           headline="Steve and Glo's travel blog"
           tagline="Cos working is over-rated"

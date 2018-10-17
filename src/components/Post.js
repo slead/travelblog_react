@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
-import Header from "./Header";
 import SanitizedHTML from "react-sanitized-html";
+import Header from "./Header";
+import Thumbnail from "./Thumbnail";
 
 class Post extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class Post extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <div className="row top-50">
           <div className="col-md-12 mx-auto">
             <div className="post-preview">
@@ -52,6 +53,11 @@ class Post extends React.Component {
                 allowedTags={["a"]}
                 html={this.state.post.content}
               />
+               <div className="row">
+                {this.state.post.photos.map(photo => {
+                  return <Thumbnail photo={photo} key={photo.id} size="large"/>;
+                })}
+              </div>
             </div>
           </div>
         </div>
