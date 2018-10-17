@@ -18,7 +18,7 @@ class Post extends React.Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:3001/posts/" + this.state.slug + ".json")
+      .get("https://guarded-river-82725.herokuapp.com/posts/" + this.state.slug + ".json")
       .then(response => {
         this.setState({ post: response.data });
       })
