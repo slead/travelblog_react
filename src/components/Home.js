@@ -28,28 +28,12 @@ class Home extends React.Component {
     }
   };
 
-  getHeadLine = () => {
-    try {
-      return this.state.posts[0].title;
-    } catch (error) {
-      return "Steve and Glo's travel blog";
-    }
-  };
-
-  getTagline = () => {
-    try {
-      return this.state.posts[0].title;
-    } catch (error) {
-      return "Cos working is over-rated";
-    }
-  };
-
   render() {
     return (
       <div>
         <Header
-          headline={this.getHeadLine()}
-          tagline={this.getTagline()}
+          headline="Steve and Glo's travel blog"
+          tagline="Cos working is over-rated"
           headerClass="subheading"
           headerPhoto={this.getHeaderPhoto()}
         />
