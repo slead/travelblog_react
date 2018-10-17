@@ -13,7 +13,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios
-      .get("https://guarded-river-82725.herokuapp.com/posts.json?api=true")
+      .get("http://localhost:3001/posts.json?api=true")
       .then(response => {
         this.setState({ posts: response.data });
       })

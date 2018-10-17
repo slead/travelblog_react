@@ -26,7 +26,7 @@ class Postsnippet extends React.Component {
               />
               <div className="row">
                 {this.props.post.photos.map(photo => {
-                  return <Thumbnail photo={photo} key={photo.id} />;
+                  return <Thumbnail photo={photo} key={photo.id} size="small"/>;
                 })}
               </div>
             </div>
