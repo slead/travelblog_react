@@ -6,6 +6,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import "./css/bootstrap.css";
 import "./css/clean-blog.css";
 import "./css/application.css";
 import Home from "./components/Home";
